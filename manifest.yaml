@@ -76,7 +76,7 @@ hardware-requirements:
 health-checks:
   web-ui:
     name: Web Interface
-    success-message: The Hello World is accessible
+    success-message: The user interface is reachable.
     type: script
 config:
   get:
@@ -141,12 +141,12 @@ backup:
       - create
       - /mnt/backup
       # For duplicity, the backup mount point needs to be something other than `/root`, so we default to `/root/data`
-      - /root/data
+      - /app
     mounts:
       # BACKUP is the default volume that is used for backups. This is whatever backup drive is mounted to the device, or a network filesystem.  
       # The value here donates where the mount point will be. The backup drive is mounted to this location.
       BACKUP: "/mnt/backup" 
-      main: "/root/data"
+      main: "/app"
   # The action to execute the backup restore functionality. Details for the keys below are the same as above.
   restore:
     type: docker
@@ -157,10 +157,10 @@ backup:
       - duplicity
       - restore
       - /mnt/backup
-      - /root/data
+      - /app
     mounts:
       BACKUP: "/mnt/backup"
-      main: "/root/data"
+      main: "/app"
 migrations:
   from:
     "*":

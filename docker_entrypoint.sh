@@ -4,6 +4,8 @@ export BITCOIND_EXTERNAL_MODE=true
 export BITCOIND_IP=bitcoind.embassy
 export RPC_USER=$(yq -e -r '.rpcuser' "/root/start9/config.yaml")
 export RPC_PASS=$(yq -e -r '.rpcpassword' "/root/start9/config.yaml")
+export ZMQ_HASHTX_PORT=28333
+export ZMQ_HASHBLOCK_PORT=28332
 
 printf "\n\n [i] Starting Umbrel UI ...\n\n"
 exec node /app/dist/server.js
