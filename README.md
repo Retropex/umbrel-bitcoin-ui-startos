@@ -4,7 +4,7 @@
 
 # Hello World for StartOS
 
-Hello World is a simple, minimal project that serves as a template for creating a service that runs on StartOS. This repository creates the `s9pk` package that is installed to run `hello-world` on [StartOS](https://github.com/Start9Labs/start-os/). Learn more about service packaging in the [Developer Docs](https://start9.com/latest/developer-docs/).
+Hello World is a simple, minimal project that serves as a template for creating a service that runs on StartOS. This repository creates the `s9pk` package that is installed to run `umbrel-bitcoin-ui` on [StartOS](https://github.com/Start9Labs/start-os/). Learn more about service packaging in the [Developer Docs](https://start9.com/latest/developer-docs/).
 
 ## Dependencies
 
@@ -63,27 +63,27 @@ Initialize sdk & verify install
 start-sdk init
 start-sdk --version
 ```
-Now you are ready to build the `hello-world` package!
+Now you are ready to build the `umbrel-bitcoin-ui` package!
 
 ## Cloning
 
 Clone the project locally:
 
 ```
-git clone https://github.com/Start9Labs/hello-world-startos.git
-cd hello-world-startos
+git clone https://github.com/Retropex/umbrel-bitcoin-ui-startos.git
+cd umbrel-bitcoin-ui-startos
 git submodule update --init --recursive
 ```
 
 ## Building
 
-To build the `hello-world` package for all platforms using start-sdk, run the following command:
+To build the `umbrel-bitcoin-ui` package for all platforms using start-sdk, run the following command:
 
 ```
 make
 ```
 
-To build the `hello-world` package for a single platform using start-sdk, run:
+To build the `umbrel-bitcoin-ui` package for a single platform using start-sdk, run:
 
 ```
 # for amd64
@@ -103,7 +103,7 @@ Run the following commands to determine successful install:
 ```
 start-cli auth login
 # Enter your StartOS password
-start-cli --host https://server-name.local package install hello-world.s9pk
+start-cli --host https://server-name.local package install umbrel-bitcoin-ui.s9pk
 ```
 
 If you already have your `start-cli` config file setup with a default `host`, you can install simply by running:
@@ -112,7 +112,7 @@ If you already have your `start-cli` config file setup with a default `host`, yo
 make install
 ```
 
-> **Tip:** You can also install the hello-world.s9pk using **Sideload Service** under the **System > Manage** section.
+> **Tip:** You can also install the umbrel-bitcoin-ui.s9pk using **Sideload Service** under the **System > Manage** section.
 
 ### Verify Install
 

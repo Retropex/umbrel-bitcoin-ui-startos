@@ -1,3 +1,3 @@
-[submodule "hello-world"]
-	path = hello-world
-	url = https://github.com/Start9Labs/hello-world
+[submodule "umbrel-bitcoin"]
+	path = umbrel-bitcoin
+	url = https://github.com/Retropex/umbrel-bitcoin.git
