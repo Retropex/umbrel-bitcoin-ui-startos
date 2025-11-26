@@ -1,0 +1,4 @@
+[submodule "umbrel-bitcoin"]
+	path = umbrel-bitcoin
+	url = https://github.com/Retropex/umbrel-bitcoin.git
+	branch = startos

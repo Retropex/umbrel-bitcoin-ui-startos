@@ -7,24 +7,29 @@ const architectures =
   BUILD === 'x86_64' || BUILD === 'aarch64' ? [BUILD] : ['x86_64', 'aarch64']
 
 export const manifest = setupManifest({
-  id: 'hello-world',
-  title: 'Hello World',
-  license: 'MIT',
-  wrapperRepo: 'https://github.com/Start9Labs/hello-world-wrapper',
-  upstreamRepo: 'https://github.com/Start9Labs/hello-world',
-  supportSite: 'https://docs.start9.com/',
-  marketingSite: 'https://start9.com/',
-  donationUrl: 'https://donate.start9.com/',
+  id: 'umbrel-bitcoin-ui',
+  title: 'Umbrel Bitcoin UI',
+  license: 'PolyForm Noncommercial License 1.0.0',
+  wrapperRepo: 'https://github.com/Retropex/umbrel-bitcoin-ui-startos',
+  upstreamRepo: 'https://github.com/Retropex/umbrel-bitcoin.git',
+  supportSite: 'https://github.com/Retropex/umbrel-bitcoin/issues',
+  marketingSite: 'https://github.com/Retropex/umbrel-bitcoin.git',
+  donationUrl: null,
   docsUrl:
-    'https://github.com/Start9Labs/hello-world-startos/blob/master/instructions.md',
+    'https://github.com/Retropex/umbrel-bitcoin.git',
   description: {
-    short: 'Bare bones example of a StartOS service',
-    long: 'Hello World is a template service that provides examples of basic StartOS features.',
+    short: 'User interface for Bitcoin Knots.',
+    long: 'User interface for Bitcoin Knots node.',
   },
   volumes: ['main'],
   images: {
-    'hello-world': {
-      source: { dockerTag: 'start9/hello-world' },
+    'umbrel-bitcoin-ui': {
+      source: {
+        dockerBuild: {
+          workdir: './',
+          dockerfile: 'Dockerfile',
+        },
+      },
       arch: architectures,
     } as SDKImageInputSpec,
   },

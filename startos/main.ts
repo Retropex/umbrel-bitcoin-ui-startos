@@ -2,33 +2,21 @@ import { sdk } from './sdk'
 import { uiPort } from './utils'
 
 export const main = sdk.setupMain(async ({ effects, started }) => {
-  /**
-   * ======================== Setup (optional) ========================
-   *
-   * In this section, we fetch any resources or run any desired preliminary commands.
-   */
-  console.info('Starting Hello World!')
+  console.info('Starting Umbrel UI.')
 
-  /**
-   * ======================== Daemons ========================
-   *
-   * In this section, we create one or more daemons that define the service runtime.
-   *
-   * Each daemon defines its own health check, which can optionally be exposed to the user.
-   */
   return sdk.Daemons.of(effects, started).addDaemon('primary', {
     subcontainer: await sdk.SubContainer.of(
       effects,
-      { imageId: 'hello-world' },
+      { imageId: 'umbrel-bitcoin-ui' },
       sdk.Mounts.of().mountVolume({
         volumeId: 'main',
         subpath: null,
-        mountpoint: '/data',
+        mountpoint: '/mnt',
         readonly: false,
       }),
-      'hello-world-sub',
+      'umbrel-bitcoin-ui-sub',
     ),
-    exec: { command: ['hello-world'] },
+    exec: { command: ['node /app/dist/server.js'] },
     ready: {
       display: 'Web Interface',
       fn: () =>

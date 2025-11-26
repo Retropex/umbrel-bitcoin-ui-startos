@@ -1,8 +1,8 @@
 import { VersionInfo } from '@start9labs/start-sdk'
 
-export const v_0_4_0_0 = VersionInfo.of({
-  version: '0.4.0:0',
-  releaseNotes: 'Revamped for StartOS 0.4.0',
+export const v_1_1_0_0 = VersionInfo.of({
+  version: '1.1.0:0',
+  releaseNotes: 'Umbrel UI for StartOS 0.4.0',
   migrations: {
     up: async ({ effects }) => {},
     down: async ({ effects }) => {},
