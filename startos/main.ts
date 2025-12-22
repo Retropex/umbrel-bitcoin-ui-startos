@@ -2,10 +2,10 @@ import { sdk } from './sdk'
 import { uiPort } from './utils'
 import { manifest } from 'bitcoin-knots/startos/manifest'
 
-export const main = sdk.setupMain(async ({ effects, started }) => {
+export const main = sdk.setupMain(async ({ effects }) => {
   console.info('Starting Umbrel UI.')
 
-  return sdk.Daemons.of(effects, started).addDaemon('primary', {
+  return sdk.Daemons.of(effects).addDaemon('primary', {
     subcontainer: await sdk.SubContainer.of(
       effects,
       { imageId: 'umbrel-bitcoin-ui' },

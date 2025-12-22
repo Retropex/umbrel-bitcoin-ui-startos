@@ -1,8 +1,8 @@
 import { sdk } from './sdk'
-import { other } from 'bitcoin-knots/startos/actions/config/other'
+import { otherConfig } from 'bitcoin-knots/startos/actions/config/other'
 
 export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
-  await sdk.action.createTask(effects, 'bitcoind', other, 'critical', {
+  await sdk.action.createTask(effects, 'bitcoind', otherConfig, 'critical', {
     input: {
       kind: 'partial',
       value: {
