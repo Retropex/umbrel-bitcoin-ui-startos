@@ -10,13 +10,13 @@ export const manifest = setupManifest({
   id: 'umbrel-bitcoin-ui',
   title: 'Umbrel Bitcoin UI',
   license: 'PolyForm Noncommercial License 1.0.0',
-  wrapperRepo: 'https://github.com/Retropex/umbrel-bitcoin-ui-startos',
+  packageRepo: 'https://github.com/Retropex/umbrel-bitcoin-ui-startos',
   upstreamRepo: 'https://github.com/Retropex/umbrel-bitcoin.git',
-  supportSite: 'https://github.com/Retropex/umbrel-bitcoin/issues',
-  marketingSite: 'https://github.com/Retropex/umbrel-bitcoin.git',
+  marketingUrl: 'https://github.com/Retropex/umbrel-bitcoin.git',
   donationUrl: null,
-  docsUrl:
-    'https://github.com/Retropex/umbrel-bitcoin.git',
+  docsUrls: [
+    'https://github.com/Retropex/umbrel-bitcoin.git'
+  ],
   description: {
     short: 'User interface for Bitcoin Knots.',
     long: 'User interface for Bitcoin Knots node.',
@@ -32,9 +32,6 @@ export const manifest = setupManifest({
       },
       arch: architectures,
     } as SDKImageInputSpec,
-  },
-  hardwareRequirements: {
-    arch: architectures,
   },
   alerts: {
     install: null,

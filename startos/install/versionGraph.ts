@@ -3,6 +3,5 @@ import { current, other } from './versions'
 
 export const versionGraph = VersionGraph.of({
   current,
-  other,
-  preInstall: async (effects) => {},
+  other
 })
