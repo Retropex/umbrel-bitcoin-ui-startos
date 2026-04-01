@@ -6,9 +6,9 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@start9labs/start-sdk": "^0.4.0-beta.66",
+    "@start9labs/start-sdk": "1.0.0",
     "bitcoin-knots": "git+https://github.com/Retropex/knots-startos.git#next",
-    "bitcoin-core-startos": "git+https://github.com/Start9Labs/bitcoin-core-startos.git#040/30.2"
+    "bitcoin-core-startos": "git+https://github.com/Start9Labs/bitcoin-core-startos.git#30.x"
   },
   "devDependencies": {
     "@types/node": "^22.19.0",
