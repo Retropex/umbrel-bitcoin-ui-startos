@@ -1,6 +1,7 @@
 import { sdk } from './sdk'
 import { uiPort } from './utils'
 import { manifest } from 'bitcoin-knots/startos/manifest'
+import { i18n } from './i18n'
 
 export const main = sdk.setupMain(async ({ effects }) => {
   console.info('Starting Umbrel UI.')
@@ -36,11 +37,11 @@ export const main = sdk.setupMain(async ({ effects }) => {
         ] 
       },
     ready: {
-      display: 'Web Interface',
+      display: i18n('Web Interface'),
       fn: () =>
         sdk.healthCheck.checkPortListening(effects, uiPort, {
-          successMessage: 'The web interface is ready',
-          errorMessage: 'The web interface is not ready',
+          successMessage: i18n('The web interface is ready'),
+          errorMessage: i18n('The web interface is not ready'),
         }),
     },
     requires: [],
