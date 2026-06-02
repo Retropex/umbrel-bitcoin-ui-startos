@@ -1,41 +1,43 @@
 import { sdk } from './sdk'
 import { uiPort } from './utils'
-import { manifest } from 'bitcoin-knots/startos/manifest'
 import { i18n } from './i18n'
+import { manifest } from 'bitcoin-knots-startos/startos/manifest'
 
 export const main = sdk.setupMain(async ({ effects }) => {
-  console.info('Starting Umbrel UI.')
+  console.info(i18n('Starting Umbrel UI.'))
 
   return sdk.Daemons.of(effects).addDaemon('primary', {
     subcontainer: await sdk.SubContainer.of(
       effects,
       { imageId: 'umbrel-bitcoin-ui' },
-      sdk.Mounts.of().mountVolume({
-        volumeId: 'main',
-        subpath: null,
-        mountpoint: '/root',
-        readonly: false,
-      }).mountDependency<typeof manifest>({
-            dependencyId: 'bitcoind',
-            volumeId: 'main',
-            subpath: null,
-            mountpoint: '/mnt/knots',
-            readonly: true,
-          }),
+      sdk.Mounts.of()
+        .mountVolume({
+          volumeId: 'main',
+          subpath: null,
+          mountpoint: '/root',
+          readonly: false,
+        })
+        .mountDependency<typeof manifest>({
+          dependencyId: 'bitcoind',
+          volumeId: 'main',
+          subpath: null,
+          mountpoint: '/mnt/knots',
+          readonly: true,
+        }),
       'umbrel-bitcoin-ui-sub',
     ),
-    exec: { 
+    exec: {
       command: [
-          'env',
-          'BITCOIND_EXTERNAL_MODE=true',
-          'ZMQ_HASHTX_PORT=28333',
-          'ZMQ_HASHBLOCK_PORT=28332',
-          'BITCOIND_IP=bitcoind.startos',
-          'RPC_COOKIE=/mnt/knots/.cookie',
-          'node',
-          '/app/dist/server.js',
-        ] 
-      },
+        'env',
+        'BITCOIND_EXTERNAL_MODE=true',
+        'ZMQ_HASHTX_PORT=28333',
+        'ZMQ_HASHBLOCK_PORT=28332',
+        'BITCOIND_IP=bitcoind.startos',
+        'RPC_COOKIE=/mnt/knots/.cookie',
+        'node',
+        '/app/dist/server.js',
+      ],
+    },
     ready: {
       display: i18n('Web Interface'),
       fn: () =>

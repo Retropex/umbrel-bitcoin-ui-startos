@@ -1,10 +1,5 @@
 import { setupManifest } from '@start9labs/start-sdk'
-import { SDKImageInputSpec } from '@start9labs/start-sdk/base/lib/types/ManifestTypes'
-
-const BUILD = process.env.BUILD || ''
-
-const architectures =
-  BUILD === 'x86_64' || BUILD === 'aarch64' ? [BUILD] : ['x86_64', 'aarch64']
+import { long, short } from './i18n'
 
 export const manifest = setupManifest({
   id: 'umbrel-bitcoin-ui',
@@ -14,13 +9,8 @@ export const manifest = setupManifest({
   upstreamRepo: 'https://github.com/Retropex/umbrel-bitcoin.git',
   marketingUrl: 'https://github.com/Retropex/umbrel-bitcoin.git',
   donationUrl: null,
-  docsUrls: [
-    'https://github.com/Retropex/umbrel-bitcoin.git'
-  ],
-  description: {
-    short: 'User interface for Bitcoin Knots.',
-    long: 'User interface for Bitcoin Knots node.',
-  },
+  docsUrls: ['https://github.com/Retropex/umbrel-bitcoin.git'],
+  description: { short, long },
   volumes: ['main'],
   images: {
     'umbrel-bitcoin-ui': {
@@ -30,16 +20,8 @@ export const manifest = setupManifest({
           dockerfile: 'Dockerfile',
         },
       },
-      arch: architectures,
-    } as SDKImageInputSpec,
-  },
-  alerts: {
-    install: null,
-    update: null,
-    uninstall: null,
-    restore: null,
-    start: null,
-    stop: null,
+      arch: ['x86_64', 'aarch64'],
+    },
   },
   dependencies: {},
 })
